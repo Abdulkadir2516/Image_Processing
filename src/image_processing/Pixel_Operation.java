@@ -62,6 +62,11 @@ public class Pixel_Operation {
                     // bgr
                     pixelValue =  pixelValue < 0 ? pixelValue + 256 : pixelValue;
                     
+                    if(c==1 && pixelValue<255)
+                    {
+                        pixelValue = 255;
+                    }
+                    
                     // bu kod satýrýnda aslýnda bizim filtremizin oluþturulmasý iþlemi
                     // saturate metodu deðerlerimizi normalize etmemize olanak saðlýyor yaný deðerleri 0-255 arasýnda tutuyor
                     newImageData[(y * image.cols() + x) * image.channels() + c] = saturate(alpha * pixelValue + beta);
